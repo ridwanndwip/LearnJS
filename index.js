@@ -1,11 +1,37 @@
 // LATIHAN = mengambil dan membuat value array agar bisa masuk kedalam daftar list array
 let myArr = ['ridwan', 'dwi']; //deklarasi array
-let buttonValue = document.getElementById('inputNilai');
+let buttonValue = document.querySelector('input#inputNilai');
 let buttonPush = document.getElementById('buttonPush');
 let buttonPop = document.getElementById('buttonPop');
-let isiArray = document.getElementById('isiArr'); // Mengambil element isiArr untuk modified
-console.log(myArr.join('-'));
-console.log(buttonValue);
+let isiArray = document.querySelector('p#isiArr'); // Mengambil element isiArr untuk modified
+// console.log(buttonValue);
+// isiArray.textContent = ;
+// stringArr = (myArr.join('-'));
+// console.log(stringArr);
+
+// let nilai = buttonValue.value;
+
+
+function InputValueTambah(){
+  let newbuttonValue = buttonValue.value;
+  myArr.push(newbuttonValue);
+  console.log(newbuttonValue);
+  console.log(myArr);
+  isiArray.textContent = (myArr.join('-'));
+}
+
+function InputValueKurang(){
+  let newbuttonValue = buttonValue.value;
+  myArr.pop();
+  console.log(newbuttonValue);
+  console.log(myArr);
+  isiArray.textContent = (myArr.join('-'));
+}
+
+isiArray.textContent = (myArr.join('-'));
+
+// console.log(myArr.join('-'));
+// console.log(buttonValue);
 
 // let fruits = ['jeruk', 'semangka', 'apel','apabae'];
 // console.log(fruits.length);
@@ -128,4 +154,68 @@ console.log(buttonValue);
 // Node 
 // Node dalam DOM (Document Object Model) adalah unit dasar dari struktur dokumen. Setiap bagian dari dokumen HTML atau XML, seperti elemen, atribut, teks, dan komentar, dianggap sebagai node. Berikut adalah penjelasan yang lebih mudah untuk dipahami:
 // Jenis2 Node dalam DOM adalah : Element Node (tag <div></div>), Text Node(Teks yang ada di dalam element node misalnya), Attribute Node (Attribut dari element, <div id="attribute_node"></div>)
+
+// NodeList vs HTMLCollection
+// - Keduanya merupakan kumpulan node
+// - Struktur datanya mirip array
+// - nodeList dapat berisi node apapun, sedangkan HTMLCollection berisi elemen HTML
+// - HTMLCollection bersifat live sedangkan nodeList tidak
+
+// Struktur Hierarki DOM
+// - Root Node
+//  -- Node yang menjadi sumber dari semua node lain di dalam DOM
+//  -- document.
+// - Parent Node
+//  -- Node yang berisi 1 tingkat di atas node yang lain
+//  -- body adalah parent dari h1,p,p,div dan a
+// - Child Node
+//  -- node yang berada 1 tingkat dibawah node yang lain
+//  -- h1 adalah child dari body
+
+// let testing = document.getElementById('isiArr');
+// let h12 = document.getElementsByClassName('h12');
+// let h12New = document.getElementsByClassName('h12');
+// let p = document.getElementsByTagName('p');
+// console.log(p);
+// console.log(p.length);
+// console.log(h12);
+// h12.innerHTML = '<i>ganteng</i>';
+// console.log(h12);
+// h12.textContent = 'ganteng banget';
+// console.log(h12);
+
+// console.log(typeof(h12));
+
+// console.log(testing);
+
+// let h1Group = document.getElementsByTagName('h1');
+// console.log(h1Group.length);
+// for(let i = 0; i < h1Group.length; i++){
+  // h1Group.push(i);
+  // console.log(i);
+  // h1Group.repeat(i);
+  // console.log(h1Group);
+  // h1Group(i).style.color = 'red';
+  // h1Group[i].style.color = 'red';
+// }
+
+// DOM Selection Method 
+// getElementById() = mengambil element by id (elemen)
+// getElementByTagName()[] = mengambil element by tag (htmlcollection)
+// getElementByClassName()[] = mengambil element by class (htmlcollection)
+// querySelector() = mengambil elemen child, atau mempunyai parent, contoh querySelector('#id .class') (elemen)
+// querySelectorAll() =  mengambil element yang lebih dari 1, wajib memberikan index(nodeList)
+
+// DOM Manipulation Method
+// - Manipulasi Elemen
+// -- element.textContent = mengubah text dalam tag
+// -- element.innerHTML = mengubah HTML, contoh <b>ganteng</>
+// -- element.style.<propertyCss> = mengubah style css
+// -- element.setAttribute('nameAttribute' 'valueAttribute')  , getAttribute(name attribute), removeAttribute('removeAttribute') = manipulasi atribute di html.
+// -- element.classList.add() = menambahkan class
+// -- element.classList.remove() = menghapus class yang ada
+// -- element.classList.toggle() = membuat toggle untuk class css
+// -- element.classList.item() = Mengembalikan nama kelas pada posisi tertentu dalam daftar kelas elemen. Indeks dimulai dari 0.
+// -- element.classList.contains() = Memeriksa apakah elemen memiliki kelas tertentu. Mengembalikan nilai true jika kelas ada, false jika tidak ada.
+// -- element.replace() = Menggantikan kelas yang ada dengan kelas baru. (oldClass, newClass)
 
