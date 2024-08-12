@@ -1,16 +1,18 @@
-// LATIHAN = mengambil dan membuat value array agar bisa masuk kedalam daftar list array
+// LATIHAN
+// ------------
+//  mengambil dan membuat value array agar bisa masuk kedalam daftar list array
+
 let myArr = ['ridwan', 'dwi']; //deklarasi array
 let buttonValue = document.querySelector('input#inputNilai');
 let buttonPush = document.getElementById('buttonPush');
 let buttonPop = document.getElementById('buttonPop');
 let isiArray = document.querySelector('p#isiArr'); // Mengambil element isiArr untuk modified
-// console.log(buttonValue);
+console.log(buttonValue);
 // isiArray.textContent = ;
-// stringArr = (myArr.join('-'));
-// console.log(stringArr);
+stringArr = (myArr.join('-'));
+console.log(stringArr);
 
-// let nilai = buttonValue.value;
-
+let nilai = buttonValue.value;
 
 function InputValueTambah(){
   let newbuttonValue = buttonValue.value;
@@ -30,14 +32,23 @@ function InputValueKurang(){
 
 isiArray.textContent = (myArr.join('-'));
 
-// console.log(myArr.join('-'));
-// console.log(buttonValue);
+console.log(myArr.join('-'));
+console.log(buttonValue);
 
-// let fruits = ['jeruk', 'semangka', 'apel','apabae'];
-// console.log(fruits.length);
+
+
+// --------------------------
+// ARRAY
+// ----------------------
+// let rows = []; = Membuat array kosong
+// let fruits = ['jeruk', 'semangka', 'apel','nanas']; = membuat array yang mendeklarasikan variabel terlebih dahulu
+// console.log(fruits.length); =  
 // for(i = 2; i < fruits.length; i++){
 //   console.log(fruits[i]);
 // };
+// --------------------------
+// For looping
+// ----------------------
 
 // let array = [];
 // const count = 10;
@@ -54,8 +65,7 @@ isiArray.textContent = (myArr.join('-'));
 
 // Memasukkan variabel string kosong dari for of
 
-// Membuat array kosong
-// let rows = []; 
+
 // Membuat String Kosong
 // let result = ""; 
 
