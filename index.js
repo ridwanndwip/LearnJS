@@ -217,6 +217,7 @@ console.log(buttonValue);
 // querySelectorAll() =  mengambil element yang lebih dari 1, wajib memberikan index(nodeList)
 
 // DOM Manipulation Method
+
 // - Manipulasi Elemen
 // -- element.textContent = mengubah text dalam tag
 // -- element.innerHTML = mengubah HTML, contoh <b>ganteng</>
@@ -229,3 +230,80 @@ console.log(buttonValue);
 // -- element.classList.contains() = Memeriksa apakah elemen memiliki kelas tertentu. Mengembalikan nilai true jika kelas ada, false jika tidak ada.
 // -- element.replace() = Menggantikan kelas yang ada dengan kelas baru. (oldClass, newClass)
 
+// Contoh = 
+// const judul = document.getElementById('judul');
+// judul(element).InnerHTML = 'Ridwan Dwi Permana';
+
+// - Manipulasi Node
+
+// -- Membuat Element Baru
+// let pBaru = document.createElement('p');
+// let isiPbaru = document.createTextNode('paragrafBaru');
+// -- Simpan tulisan ke dalam paragraf
+// pBaru.appendChild(isiPbaru);
+// -- simpan pBaru di tempat yang diinginkan
+// const sectionA = document.getElementById('sectionA');
+// sectionA.appendChild(pBaru)
+
+// Mengambil Tagli yang spesifik
+// -- const ul = document.querySelector('section#b ul') = menangkap ul
+// -- const li2 = ul.querySelector('li:nthchild(2)'); = menangkap li dalam ul di baris ke 3
+
+// insertBefore() = menyimpan element sebelum, contoh = 
+// ul.insertBefore(pBaru, li2) = menyimpan node pBaru ke dalam ul sebelum node li2
+
+// parentNode.removeChild(); = untuk menghapus child dari parentnode
+// Contoh > const link = document.getElementsByTagName('a')[0];
+// SectionA.removeChild(link);
+
+// parentNode.replaceChild(); = untuk menimpa child dari paentnode
+// Contoh > const link = document.getElementsByTagName('a')[0];
+// SectionA.replaceChild(linkBaru);
+
+
+/*
+EVENT
+----- 
+Event pada js merepresentasikan sebuah kejadian yang terjadi di dalam DOM
+Kejadian tersebut bisa dilakukan oleh user, (mouse event , keyboard event, dll)
+ataupun dilakukan otomatis secara API (animasi selesai dijalankan, halaman selesai di load,dll)
+Daftar Event = Mouse event, keyboard event, resources event, focus event, view event, form event, drag & drop event, dll.
+
+// Cara 'mendengarkan' Event ada 2
+1. Event Handler = inline HTML atribute (menggunakan attribute onclick) & element method (menggunakan method seperti p2.onclick = ubahWarna; (ketika p2 di klik akan menjalankan fungsi ubahWarna))
+
+2. addEventListener(); = Menambahkan event listener ke elemen. Event listener adalah fungsi yang akan dipanggil ketika event tertentu terjadi.
+element.addEventListener(event, function, useCapture);
+
+event: Nama event yang ingin didengarkan (misalnya, 'click', 'mouseover', 'keydown').
+function: Fungsi yang akan dijalankan saat event terjadi.
+useCapture (opsional): Boolean yang menentukan apakah event listener akan menangkap event pada fase capturing (true) atau bubbling (false). Default adalah false.
+
+contoh menggunkannya =
+
+document.getElementById('myButton').addEventListener('click', function() {
+    alert('Button clicked!');
+});
+
+atau
+
+function handleClick() {
+    alert('Button clicked!');
+}
+
+document.getElementById('myButton').addEventListener('click', handleClick);
+
+// Menghapus event listener
+document.getElementById('myButton').removeEventListener('click', handleClick);
+
+WARNING = DIREKOMENDASIKAN MENGGUNAKAN addEventListener();
+
+*/ 
+
+
+/*
+DOM TRAVERSAL
+------------
+
+
+*/
