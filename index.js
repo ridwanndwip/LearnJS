@@ -2,38 +2,37 @@
 // ------------
 //  mengambil dan membuat value array agar bisa masuk kedalam daftar list array
 
-let myArr = ['ridwan', 'dwi']; //deklarasi array
-let buttonValue = document.querySelector('input#inputNilai');
-let buttonPush = document.getElementById('buttonPush');
-let buttonPop = document.getElementById('buttonPop');
-let isiArray = document.querySelector('p#isiArr'); // Mengambil element isiArr untuk modified
-console.log(buttonValue);
-// isiArray.textContent = ;
-stringArr = (myArr.join('-'));
-console.log(stringArr);
+// let myArr = ['ridwan', 'dwi']; //deklarasi array
+// let buttonValue = document.querySelector('input#inputNilai');
+// let buttonPush = document.getElementById('buttonPush');
+// let buttonPop = document.getElementById('buttonPop');
+// let isiArray = document.querySelector('p#isiArr'); // Mengambil element isiArr untuk modified
+// console.log(buttonValue);
+// stringArr = (myArr.join('-'));
+// console.log(stringArr);
 
-let nilai = buttonValue.value;
+// let nilai = buttonValue.value;
 
-function InputValueTambah(){
-  let newbuttonValue = buttonValue.value;
-  myArr.push(newbuttonValue);
-  console.log(newbuttonValue);
-  console.log(myArr);
-  isiArray.textContent = (myArr.join('-'));
-}
+// function InputValueTambah(){
+//   let newbuttonValue = buttonValue.value;
+//   myArr.push(newbuttonValue);
+//   console.log(newbuttonValue);
+//   console.log(myArr);
+//   isiArray.textContent = (myArr.join('-'));
+// }
 
-function InputValueKurang(){
-  let newbuttonValue = buttonValue.value;
-  myArr.pop();
-  console.log(newbuttonValue);
-  console.log(myArr);
-  isiArray.textContent = (myArr.join('-'));
-}
+// function InputValueKurang(){
+//   let newbuttonValue = buttonValue.value;
+//   myArr.pop();
+//   console.log(newbuttonValue);
+//   console.log(myArr);
+//   isiArray.textContent = (myArr.join('-'));
+// }
 
-isiArray.textContent = (myArr.join('-'));
+// isiArray.textContent = (myArr.join('-'));
 
-console.log(myArr.join('-'));
-console.log(buttonValue);
+// console.log(myArr.join('-'));
+// console.log(buttonValue);
 
 
 
@@ -302,8 +301,60 @@ WARNING = DIREKOMENDASIKAN MENGGUNAKAN addEventListener();
 
 
 /*
+
 DOM TRAVERSAL
 ------------
+DOM Traversal adalah teknik untuk menjelajahi atau menavigasi struktur DOM (Document Object Model) di halaman web. DOM itu sendiri adalah representasi berbasis pohon dari elemen-elemen di dalam dokumen HTML atau XML, di mana setiap elemen adalah sebuah node dalam pohon tersebut.
 
+Traversal berarti berjalan melalui node-node ini untuk menemukan, memanipulasi, atau mengelola elemen-elemen dalam halaman web. Ada beberapa metode dan properti dalam JavaScript yang digunakan untuk melakukan DOM Traversal:
 
+- parentNode: Mengembalikan node induk dari node yang sedang diakses.
+- childNodes: Mengembalikan daftar node anak dari node yang sedang diakses, termasuk node teks.
+- firstChild dan lastChild: Mengembalikan node anak pertama atau terakhir dari node yang sedang diakses.
+- nextSibling dan previousSibling: Mengembalikan node saudara berikutnya atau sebelumnya dari node yang sedang diakses.
+- children: Mengembalikan daftar node anak yang merupakan elemen (tidak termasuk node teks).
+
+Contoh DOM TRAVERSAL WPU:
+*/
+
+// const close = document.querySelector('.close');
+// const card = document.querySelector('.card');
+
+// close.addEventListener('click', function () {
+//   card.style.display = 'none';
+// })
+
+// Atau jika case ada >1 card
+
+// const close = document.querySelectorAll('.close');
+// for ( let i = 0; i <close.length; i++){
+//   close[i].addEventListener('click', function(){
+//     close[i].parentElement.style.display = 'none';
+//   })
+// }
+
+// const close = document.querySelectorAll('.close');
+// for ( let i = 0; i <close.length; i++){
+//   close[i].addEventListener('click', function(e){
+//     e.target.parentElement.style.display = 'none';
+//   })
+// }
+
+// const close = document.querySelectorAll('.close');
+
+// close.forEach(function(el){
+//   el.addEventListener('click', function(e){
+//     e.target.parentElement.style.display = 'none';
+//   })
+// })
+
+/* 
+DOM TRAVERSAL METHOD - hasil
+-------------------
+element.parentNode - node(hasil)
+element.parentElement - element(hasil)
+element.nextSibling - node(hasil)
+element.nextElementSibling - element(hasil)
+element.previousSibling - node(hasil)
+element.previousElementSibling - element(hasil)
 */
