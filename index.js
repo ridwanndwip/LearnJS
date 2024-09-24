@@ -358,3 +358,38 @@ element.nextElementSibling - element(hasil)
 element.previousSibling - node(hasil)
 element.previousElementSibling - element(hasil)
 */
+
+
+
+// SYNCHRONOUS VS ASYNCHRONOUS
+
+
+// SYNCHRONOUS
+
+// const getUserSync = (id) => { //Arrow Function
+//   const nama = id === 1 ? 'Ridwan' : 'Permana'; // Operator Ternary
+//   return {id, nama};
+// };
+
+// IF NOT USE OPERATOR TERNARY
+// const getUserSync = (id) => {
+//   let nama = '';
+//   if (id === 1){
+//     nama = 'Ridwan';
+//   } else {
+//     nama = 'Permana';
+//   }
+//   return{id,nama};
+// }
+
+// const userSatu = getUserSync(1);
+// console.log(userSatu);
+
+// const userDua = getUserSync(2);
+// console.log(userDua);
+
+// const halo = 'Hello World';
+// console.log(halo);
+
+
+// ASYNCHRONOUS
