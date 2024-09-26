@@ -359,6 +359,36 @@ element.previousSibling - node(hasil)
 element.previousElementSibling - element(hasil)
 */
 
+// OBJECT
+// -------------
+/* 
+CARA MEMBUAT OBJECT LITERAL
+
+let myObj = {
+  nama : 'ridwan',
+  kerja : 'weekend',
+  umur : 23,
+  profile : {
+      'wajah' : 'ganteng',
+      'rambut' : 'lurus',
+    },
+    nilai : [2.00, 2.50, 3.01]
+}
+ */
+    
+// CARA MEMBUAT OBJECT VIA FUNCTION DECLARATION
+
+function objDeclaration(nama, kerja, umur, nilai){
+  let profile = {};
+  profile.nama = nama;
+  profile.umur = umur;
+  // profile.profile = profile;
+  profile.nilai = nilai;
+  return profile;
+}
+
+const profile2 = objDeclaration('ridwan', 'weekend', 23, [2.00, 2.50, 3.01]);
+
 
 
 // SYNCHRONOUS VS ASYNCHRONOUS
