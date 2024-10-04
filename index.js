@@ -361,8 +361,9 @@ element.previousElementSibling - element(hasil)
 
 // OBJECT
 // -------------
+
 /* 
-CARA MEMBUAT OBJECT LITERAL
+// --- CARA MEMBUAT OBJECT LITERAL
 
 let myObj = {
   nama : 'ridwan',
@@ -374,22 +375,245 @@ let myObj = {
     },
     nilai : [2.00, 2.50, 3.01]
 }
- */
-    
-// CARA MEMBUAT OBJECT VIA FUNCTION DECLARATION
 
-function objDeclaration(nama, kerja, umur, nilai){
-  let profile = {};
-  profile.nama = nama;
-  profile.umur = umur;
-  // profile.profile = profile;
-  profile.nilai = nilai;
-  return profile;
+
+
+// --- CARA MEMBUAT OBJECT VIA FUNCTION DECLARATION
+
+function Mahasiswa(nama,npm,energi){
+  const objMhs = {}; 
+  objMhs.nama = nama;
+  objMhs.npm = npm;
+  objMhs.energi = energi;
+  objMhs.belajar = (jam) =>{
+    objMhs.energi -= jam * 10;
+    console.log(`Selamat Belajar ${objMhs.nama}`)
+  }
+  objMhs.makan = (porsi) =>{
+    objMhs.energi += porsi * 10;
+    console.log(`Selamat Makan ${objMhs.nama}`);
+  }
+  return objMhs; 
+}
+const Ridwan = Mahasiswa('ridwan',201542501386, 30);
+const Dewi = Mahasiswa('Dewi', 201543501387, 30);
+
+atau bisa menggunakan method yang terpisah namun tetap menggunakan FUNCTION DECLARATION(OBJECT.CREATE). Tujuannya adalah agar tidak menggunakan function secara berulang yang akan menyebabkan memori penuh
+
+function Mahasiswa(nama,npm,energi){
+  let objMhs = Object.create(methodMhs); 
+  objMhs.nama = nama;
+  objMhs.npm = npm;
+  objMhs.energi = energi;
+  // objMhs.belajar = methodMhs.belajar;
+  // objMhs.makan = methodMhs.makan;
+  return objMhs; 
 }
 
-const profile2 = objDeclaration('ridwan', 'weekend', 23, [2.00, 2.50, 3.01]);
+const methodMhs = {
+  belajar : function(jam){
+    this.energi -= jam * 10;
+    console.log(`Selamat Belajar ${this.nama}`)
+  },
+
+  makan : function (porsi) {
+    this.energi += porsi * 10;
+    console.log(`Selamat Makan ${this.nama}`);
+  }
+}
+const Ridwan = Mahasiswa('ridwan',201542501386, 30);
+const Dewi = Mahasiswa('Dewi', 201543501387, 30);
 
 
+// --- CARA MEMBUAT OBJECT VIA FUNCTION CONSTRUCTOR (Menggunakan THIS & NEW)
+Ket : saat kita membuat object via Constructor, makan dibelakang layar, kata this digunakan untuk membuat object baru, seperti yang kita gunakan saat kita membuat object via function declaration
+
+function Mahasiswa(nama,npm,energi){
+  // let this = Object.create{}; = proses dibelakang layar
+  this.nama = nama;
+  this.npm = npm;
+  this.energi = energi;
+  this.belajar = (jam) =>{
+    this.energi -= jam * 10;
+    console.log(`Selamat Belajar ${this.nama}`)
+  }
+  this.makan = (porsi) =>{
+    this.energi += porsi * 10;
+    console.log(`Selamat Makan ${this.nama}`);
+  }
+  // return this; = proses dibelakang layar
+}
+const Ridwan = new Mahasiswa('ridwan',201542501386, 30);
+const Dewi = new Mahasiswa('Dewi', 201543501387, 30);
+
+
+// Object function constructor with prototype
+
+function Mahasiswa(nama,npm,energi){
+  // let this = Object.create{}; = proses dibelakang layar
+  this.nama = nama;
+  this.npm = npm;
+  this.energi = energi;
+  // return this; = proses dibelakang layar
+}
+
+Mahasiswa.prototype.belajar = function (jam) {
+  this.energi -= jam * 10;
+  console.log(`Selamat Belajar ${this.nama}`)
+}
+
+Mahasiswa.prototype.makan = function (porsi) {
+  this.energi += porsi * 10;
+  console.log(`Selamat Makan ${this.nama}`);
+}
+
+const Ridwan = new Mahasiswa('ridwan',201542501386, 30);
+const Dewi = new Mahasiswa('Dewi', 201543501387, 30);
+
+
+// --- CARA MEMBUAT OBJECT VIA CLASS
+
+class Mahasiswa{
+  constructor(nama,npm,energi){
+    this.nama = nama;
+    this.npm = npm;
+    this.energi = energi;
+  }
+
+  belajar (jam) {
+    this.energi -= jam * 10;
+    console.log(`Selamat Belajar ${this.nama}`)
+  }
+  
+  makan (porsi) {
+    this.energi += porsi * 10;
+    console.log(`Selamat Makan ${this.nama}`);
+  }
+}
+
+const Ridwan = new Mahasiswa('ridwan',201542501386, 30);
+const Dewi = new Mahasiswa('Dewi', 201543501387, 30);
+
+*/
+
+
+// FUNCTTON
+// -------------
+
+/* 
+
+Jenis jenis Function
+--------------------
+-- Function Expression
+const tampilNama = function(nama){
+  return `Halo, ${nama}`;
+}
+console.log(tampilNama(`Ridwan`));
+
+-- Arrow Function
+const tampilNama = (nama) => {
+  return `Halo, ${nama}`;
+}
+// atau bisa di persingkat menjadi implisit return
+
+const tampilNama = (nama) => `Halo, ${nama}`;
+console.log(tampilNama('ridwan')); 
+
+CONTOH:
+let mahasiswa = ['3', '4', '2'];
+
+let jumlahMhs = mahasiswa.map((x) => x * 2);
+console.log(jumlahMhs);
+*/
+
+
+// THIS PADA ARROW FUNCTION
+// ------------------------
+
+// Perilaku This pada function constructor
+// function Person(){
+//   this.name = 'Ridwan';
+//   this.jenkel = 'cowo';
+//   this.umur = 23;
+//   console.log(this); //Perilaku This pada Function Declaration Constructor, this merujuk pada person
+// }
+// const Me = new Person();
+// console.log(Me);
+
+// const orang = function (nama,jengkel, umur){
+//   this.nama = nama;
+//   this.jengkel = jengkel;
+//   this.umur = umur;
+//   this.sayHello = () => {
+//     console.log (`Halo ${nama}`);
+//     console.log(this.nama)
+//   }
+//   // console.log(this); //Perilaku This pada Function Declaration Constructor, this merujuk pada orang
+// }
+// const orang1 = new orang('Ridwan', 21)
+
+// Perilaku This pada object literal
+// const person = {
+//   // nama : 'ridwan',
+//   // kelas : '2sd',
+//   siapaAkuWithNoArrow : function(){
+//     console.log(`aku adalah ${this.nama}`); 
+//     console.log(this);
+//   },
+//   siapaAkuWithArrow : () => {
+//     console.log(`aku adalah ${this.nama}`); 
+//     console.log(this);
+//   }
+// }
+// console.log(person.siapaAkuWithNoArrow());
+// console.log(person.siapaAkuWithArrow());
+
+
+// const nama = 'ridwan';
+// const age = 23;
+
+// function SayName (){
+//   console.log(nama);
+//   // let aged = 20;
+//   console.log(this);
+
+//     function sayAged() => {
+//     // console.log(this.aged);
+//     // console.log(this);
+//     // return this;
+//     console.log(this);
+//   }
+
+// Latihan membuat perpustakaan
+
+const perpustakaan = function(nama,kelas,harga) {
+  this.nama = nama;
+  this.kelas = kelas;
+  this.buku = ['MarioJamban', 'Mariojenggot', 'MarioTeguh'];
+  this.harga = 
+  // function(hargaBuku){
+  //   if(this.buku == this.buku(0)){
+  //     hargaBuku = 20000;
+  //     console.log(`buku mario jamban`)
+  //     return hargaBuku;
+  //   }
+  // }
+}
+
+const person1 = new perpustakaan ('putri', '2b');
+
+
+/* Noted =
+- Baik pada function declaration maupun function expression, ketika constructor dipanggil menggunakan kata kunci new, this mengacu pada objek baru yang diciptakan oleh constructor tersebut.
+- Jika new tidak digunakan, maka this bisa menjadi undefined (dalam mode ketat/strict mode) atau merujuk pada objek global (dalam non-strict mode).
+- Tidak bisa membuat object constructor dengan arrow function = karena Arrow Function tidak memiliki konsep this
+- Arrow Function tidak memiliki konsep this
+- arrow function tdk memakai konsep this dan variabelny akan di telusuri lgi di lokal parent trdkt 
+- declaration function memakai konsep this tpi bila variabelny yg dicri tdk ad dlm localnya maka lngsng di telesuri di window
+- expression function memakai konsep this tpi bila variabel yg dicri tdk dlm local maka, ditelusuri lgi ke lokal parent trdkt
+*/
+
+/* */
 
 // SYNCHRONOUS VS ASYNCHRONOUS
 
@@ -423,3 +647,6 @@ const profile2 = objDeclaration('ridwan', 'weekend', 23, [2.00, 2.50, 3.01]);
 
 
 // ASYNCHRONOUS
+
+// let name = 'ridwan';
+// console.log(String.prototype);
