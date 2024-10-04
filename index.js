@@ -496,7 +496,6 @@ const Dewi = new Mahasiswa('Dewi', 201543501387, 30);
 
 */
 
-
 // FUNCTTON
 // -------------
 
@@ -584,25 +583,6 @@ console.log(jumlahMhs);
 //     console.log(this);
 //   }
 
-// Latihan membuat perpustakaan
-
-const perpustakaan = function(nama,kelas,harga) {
-  this.nama = nama;
-  this.kelas = kelas;
-  this.buku = ['MarioJamban', 'Mariojenggot', 'MarioTeguh'];
-  this.harga = 
-  // function(hargaBuku){
-  //   if(this.buku == this.buku(0)){
-  //     hargaBuku = 20000;
-  //     console.log(`buku mario jamban`)
-  //     return hargaBuku;
-  //   }
-  // }
-}
-
-const person1 = new perpustakaan ('putri', '2b');
-
-
 /* Noted =
 - Baik pada function declaration maupun function expression, ketika constructor dipanggil menggunakan kata kunci new, this mengacu pada objek baru yang diciptakan oleh constructor tersebut.
 - Jika new tidak digunakan, maka this bisa menjadi undefined (dalam mode ketat/strict mode) atau merujuk pada objek global (dalam non-strict mode).
@@ -613,7 +593,102 @@ const person1 = new perpustakaan ('putri', '2b');
 - expression function memakai konsep this tpi bila variabel yg dicri tdk dlm local maka, ditelusuri lgi ke lokal parent trdkt
 */
 
-/* */
+
+
+/* 
+
+// HIGHER ORDER FUNCTION
+// ------------------------
+Higher-Order Function (HOF) adalah fungsi yang dapat menerima fungsi lain sebagai argumen, mengembalikan fungsi sebagai hasil, atau melakukan keduanya. HOF sangat berguna dalam pemrograman karena memungkinkan kita untuk membuat kode yang lebih modular, fleksibel, dan lebih mudah dikelola. HOF juga merupakan konsep dasar dalam pemrograman fungsional.
+
+Ciri-Ciri Higher-Order Function
+Fungsi dikatakan sebagai higher-order function jika memiliki salah satu dari sifat berikut:
+
+Menerima fungsi sebagai argumen.
+Mengembalikan fungsi sebagai hasil.
+Dalam JavaScript, beberapa contoh HOF yang sering digunakan adalah map, filter, dan reduce, yang sering digunakan dalam pemrosesan array.
+
+
+// 3 CONTOH HIGHER ORDER FUNCTION YANG PALING SERING DIGUNAKAN
+-Array.prototype.map() =
+-Array.prototype.filter() =
+-Array.prototype.reduce() =
+
+Contoh :
+- filter - Menggunakan fungsi untuk menyaring elemen array berdasarkan kondisi tertentu.
+const numbers = [1, 2, 3, 4, 5];
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers); // Output: [2, 4]
+const numbers = [21, 32, -3, 44, 5, 16, 10, 23];
+const neww = numbers.filter(num => num >= 10); == with arrow function
+const neww = numbers.filter(function(num){  == with no arrow function
+return num >= 10;
+});
+console.log(neww);
+
+- map - map adalah alat yang sangat kuat untuk mengubah data dengan cara yang lebih sederhana dan elegan daripada menggunakan for atau forEach.
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); // Output: [2, 4, 6, 8, 10]
+const users = [
+  { name: 'Alice', age: 25 },
+  { name: 'Bob', age: 30 },
+  { name: 'Charlie', age: 35 }
+];
+const names = users.map(user => user.name);
+console.log(names); // Output: ['Alice', 'Bob', 'Charlie']
+
+- reduce - Menggunakan fungsi untuk mengakumulasi nilai berdasarkan operasi tertentu.
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce((accumulator, currrentValue) => accumulator + currrentValue, 0); // 0 Adalah nilai awal
+console.log(sum); // Output: 15
+
+sort - Menggunakan fungsi pembanding untuk mengatur urutan elemen array.
+const fruits = ['apple', 'orange', 'banana'];
+fruits.sort((a, b) => a.localeCompare(b));
+console.log(fruits); // Output: ['apple', 'banana', 'orange']
+
+dom - Menggunakan 2 argument 'click' dan function sebagai callback
+const tombol = document.getElementById(tombol);
+tombol.addEventListener('click', function(){
+console.log('tombol ditekan!')
+})
+
+
+// Method Chaining
+// Cari angka > 5
+// kalikan 3
+// jumlahkan
+const hasil = angka. filter (a => a > 5) // 8,9,9
+.map (a => a * 3) // 24, 27, 27
+.map (a => a / 2)
+reduce ((acc, cur) => acc + cur); // 78
+console. log (hasil);
+*/
+
+const mhs = function(nama, kelas, uangJajan){
+  this.nama = nama,
+  this.kelas = kelas,
+  this.uangJajan = uangJajan,
+  // this.daftarJajan = []
+  this.daftarJajan =  [],
+  this.tambahDaftar = function(Namajajan, HargaJajan) {
+    this.daftarJajan = { hargaJajan: HargaJajan, namaJajan: Namajajan }; 
+    console.log(`anda berhasil menambahkan jajanan ${Namajajan} dengan harga ${HargaJajan}`);
+  }
+}
+
+const Ridwan = new mhs('ridwan', '2b', 3000);
+const dwi = new mhs('dwi', '2b', 5000);
+
+
+
+// for(let i = 0; i <= numbers.length ; i++){
+//   // console.log(numbers[i]);
+//   if(numbers[i] >= 12){
+//     console.log(numbers[i])
+//   }
+// }
 
 // SYNCHRONOUS VS ASYNCHRONOUS
 
