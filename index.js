@@ -725,3 +725,35 @@ const dwi = new mhs('dwi', '2b', 5000);
 
 // let name = 'ridwan';
 // console.log(String.prototype);
+
+
+
+// ----------------
+// Object.values() adalah sebuah metode dalam JavaScript yang digunakan untuk mengambil semua nilai dari properti dalam sebuah objek dan mengembalikannya dalam bentuk array.
+
+// Cara Kerja Object.values()
+// Object.values(objek) mengembalikan sebuah array yang berisi semua nilai dari setiap properti di dalam objek yang diberikan (objek).
+// Ini hanya mengambil nilai (bukan nama kunci/properti) dari setiap pasangan kunci-nilai dalam objek.
+// Contoh Sederhana
+// Mari kita lihat beberapa contoh untuk memahami cara kerja Object.values().
+
+// Contoh 1: Menggunakan Object.values pada Objek Sederhana
+// javascript
+// Copy code
+// const person = {
+//   name: 'Alice',
+//   age: 30,
+//   city: 'New York'
+// };
+
+// const values = Object.values(person);
+// console.log(values);
+// Penjelasan:
+
+// Di sini, person adalah objek yang memiliki tiga properti: name, age, dan city.
+// Ketika kita memanggil Object.values(person), kita mendapatkan array yang berisi nilai dari setiap properti dalam person.
+// Hasil:
+
+// javascript
+// Copy code
+// ['Alice', 30, 'New York']
